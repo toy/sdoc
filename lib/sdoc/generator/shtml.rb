@@ -8,6 +8,7 @@ require 'rdoc/rdoc'
 require 'rdoc/generator'
 require 'rdoc/generator/markup'
 
+require 'sdoc'
 require 'sdoc/github'
 require 'sdoc/templatable'
 require 'sdoc/helpers'

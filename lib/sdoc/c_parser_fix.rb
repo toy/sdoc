@@ -1,4 +1,4 @@
-require "rdoc/parser/c"
+require 'rdoc/parser/c'
 
 # New RDoc somehow misses class comments.
 # copied this function from "2.2.2"
