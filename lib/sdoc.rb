@@ -1,6 +1,3 @@
-require "rubygems"
-gem "rdoc", "= 2.4.3"
-
 require "rdoc/rdoc"
 
 module SDoc

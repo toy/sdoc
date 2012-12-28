@@ -4,7 +4,6 @@ require 'pathname'
 require 'fileutils'
 require 'erb'
 
-gem 'rdoc', '>= 2.4.2'
 require 'rdoc/rdoc'
 require 'rdoc/generator'
 require 'rdoc/generator/markup'
