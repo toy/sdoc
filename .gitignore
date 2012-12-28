@@ -2,3 +2,4 @@ pkg
 doc
 /test.rb
 /.rake_tasks~
+/*.gem
