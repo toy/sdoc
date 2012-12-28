@@ -11,7 +11,7 @@
 
 == Command line sdoc
 sdoc is simply a wrapper to rdoc command line tool. see <tt>sdoc --help </tt>
-for more details. <tt>--fmt</tt> is set to shtml by default. 
+for more details. <tt>--fmt</tt> is set to shtml by default.
 Default template <tt>-T</tt> is shtml. You can also use 'direct' template.
 Example:
 <tt>sdoc -o doc/rails -T direct rails</tt>

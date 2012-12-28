@@ -101,18 +101,17 @@ class RDoc::Generator::SHtml
     FILE_DIR
   end
 
-
   protected
   ### Output progress information if debugging is enabled
   def debug_msg( *msg )
     return unless $DEBUG_RDOC
     $stderr.puts( *msg )
-  end  
+  end
 
   ### Create class tree structure and write it as json
   def generate_class_tree
     debug_msg "Generating class tree"
-    topclasses = @classes.select {|klass| !(RDoc::ClassModule === klass.parent) } 
+    topclasses = @classes.select {|klass| !(RDoc::ClassModule === klass.parent) }
     tree = generate_file_tree + generate_class_tree_level(topclasses)
     debug_msg "  writing class tree to %s" % TREE_FILE
     File.open(TREE_FILE, "w", 0644) do |f|
@@ -125,9 +124,9 @@ class RDoc::Generator::SHtml
     tree = []
     classes.select{|c| c.with_documentation? }.sort.each do |klass|
       item = [
-        klass.name, 
+        klass.name,
         klass.document_self_or_methods ? klass.path : '',
-        klass.module? ? '' : (klass.superclass ? " < #{String === klass.superclass ? klass.superclass : klass.superclass.full_name}" : ''), 
+        klass.module? ? '' : (klass.superclass ? " < #{String === klass.superclass ? klass.superclass : klass.superclass.full_name}" : ''),
         generate_class_tree_level(klass.classes_and_modules)
       ]
       tree << item
@@ -163,16 +162,16 @@ class RDoc::Generator::SHtml
   def add_file_search_index(index)
     debug_msg "  generating file search index"
 
-    @files.select { |file| 
-      file.document_self 
+    @files.select { |file|
+      file.document_self
     }.sort.each do |file|
       index[:searchIndex].push( search_string(file.name) )
       index[:longSearchIndex].push( search_string(file.path) )
       index[:info].push([
-        file.name, 
-        file.path, 
-        file.path, 
-        '', 
+        file.name,
+        file.path,
+        file.path,
+        '',
         snippet(file.comment),
         TYPE_FILE
       ])
@@ -183,7 +182,7 @@ class RDoc::Generator::SHtml
   def add_class_search_index(index)
     debug_msg "  generating class search index"
 
-    @classes.select { |klass| 
+    @classes.select { |klass|
       klass.document_self_or_methods
     }.sort.each do |klass|
       modulename = klass.module? ? '' : (klass.superclass ? (String === klass.superclass ? klass.superclass : klass.superclass.full_name) : '')
@@ -191,10 +190,10 @@ class RDoc::Generator::SHtml
       index[:longSearchIndex].push( search_string(klass.parent.full_name) )
       files = klass.in_files.map{ |file| file.absolute_name }
       index[:info].push([
-        klass.name, 
-        files.include?(klass.parent.full_name) ? files.first : klass.parent.full_name, 
-        klass.path, 
-        modulename ? " < #{modulename}" : '', 
+        klass.name,
+        files.include?(klass.parent.full_name) ? files.first : klass.parent.full_name,
+        klass.path,
+        modulename ? " < #{modulename}" : '',
         snippet(klass.comment),
         TYPE_CLASS
       ])
@@ -205,10 +204,10 @@ class RDoc::Generator::SHtml
   def add_method_search_index(index)
     debug_msg "  generating method search index"
 
-    list = @classes.map { |klass| 
+    list = @classes.map { |klass|
       klass.method_list
-    }.flatten.sort{ |a, b| a.name == b.name ? a.parent.full_name <=> b.parent.full_name : a.name <=> b.name }.select { |method| 
-      method.document_self 
+    }.flatten.sort{ |a, b| a.name == b.name ? a.parent.full_name <=> b.parent.full_name : a.name <=> b.name }.select { |method|
+      method.document_self
     }
     unless @options.show_all
       list = list.find_all {|m| m.visibility == :public || m.visibility == :protected || m.force_documentation }
@@ -218,10 +217,10 @@ class RDoc::Generator::SHtml
       index[:searchIndex].push( search_string(method.name) + '()' )
       index[:longSearchIndex].push( search_string(method.parent.full_name) )
       index[:info].push([
-        method.name, 
-        method.parent.full_name, 
-        method.path, 
-        method.params, 
+        method.name,
+        method.parent.full_name,
+        method.path,
+        method.params,
         snippet(method.comment),
         TYPE_METHOD
       ])

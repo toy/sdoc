@@ -1,14 +1,14 @@
 require "rdoc/parser/c"
 
 # New RDoc somehow misses class comments.
-# copied this function from "2.2.2" 
+# copied this function from "2.2.2"
 if ['2.4.2', '2.4.3'].include? RDoc::VERSION
 
   class RDoc::Parser::C
     def find_class_comment(class_name, class_meth)
       comment = nil
       if @content =~ %r{((?>/\*.*?\*/\s+))
-                     (static\s+)?void\s+Init_#{class_name}\s*(?:_\(\s*)?\(\s*(?:void\s*)\)}xmi then
+                      (static\s+)?void\s+Init_#{class_name}\s*(?:_\(\s*)?\(\s*(?:void\s*)\)}xmi then
         comment = $1
       elsif @content =~ %r{Document-(?:class|module):\s#{class_name}\s*?(?:<\s+[:,\w]+)?\n((?>.*?\*/))}m
         comment = $1
