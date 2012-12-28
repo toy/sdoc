@@ -29,13 +29,7 @@ begin
     gem.homepage = "http://github.com/voloko/sdoc"
     gem.authors = ["Volodya Kolesnikov"]
     gem.add_dependency("rdoc", "= 2.4.3")
-
-    if defined?(JRUBY_VERSION)
-      gem.platform = Gem::Platform.new(['universal', 'java', nil])
-      gem.add_dependency("json_pure", ">= 1.1.3")
-    else
-      gem.add_dependency("json", ">= 1.1.3")
-    end
+    gem.add_dependency("json", ">= 1.1.3")
   end
 
   jewler = Jeweler::Tasks.new(spec)
