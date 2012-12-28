@@ -1,5 +1,5 @@
 require 'rake/testtask'
-require 'rake/gempackagetask'
+require 'rubygems/package_task'
 
 task :default => :test
 
