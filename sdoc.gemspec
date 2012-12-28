@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "lib/rdoc/discover.rb",
     "lib/sdoc.rb",
     "lib/sdoc/c_parser_fix.rb",
+    "lib/sdoc/fix_rdoc_options.rb",
     "lib/sdoc/generator/shtml.rb",
     "lib/sdoc/generator/template/direct/_context.rhtml",
     "lib/sdoc/generator/template/direct/class.rhtml",
