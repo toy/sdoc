@@ -1,4 +1,3 @@
-$:.unshift File.dirname(__FILE__)
 require "rubygems"
 gem "rdoc", "= 2.4.3"
 
