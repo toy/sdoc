@@ -1,4 +1,4 @@
-require 'sdoc/json_backend'
+require 'json'
 require 'iconv'
 require 'pathname'
 require 'fileutils'

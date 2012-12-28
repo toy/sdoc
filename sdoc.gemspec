@@ -63,7 +63,6 @@ Gem::Specification.new do |s|
     "lib/sdoc/generator/template/shtml/resources/panel/index.html",
     "lib/sdoc/github.rb",
     "lib/sdoc/helpers.rb",
-    "lib/sdoc/json_backend.rb",
     "lib/sdoc/merge.rb",
     "lib/sdoc/templatable.rb",
     "sdoc.gemspec"
