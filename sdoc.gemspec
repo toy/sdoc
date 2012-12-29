@@ -18,13 +18,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ["README.md"]
 
   s.add_runtime_dependency('rdoc', "~> 4.0", "< 5.0")
-
-  if defined?(JRUBY_VERSION)
-    s.platform = Gem::Platform.new(['universal', 'java', nil])
-    s.add_runtime_dependency("json_pure", ">= 1.1.3")
-  else
-    s.add_runtime_dependency("json", ">= 1.1.3")
-  end
+  s.add_runtime_dependency('json', ">= 1.1.3")
 
   s.add_development_dependency "bundler", "~> 1.3"
   s.add_development_dependency "rake"
