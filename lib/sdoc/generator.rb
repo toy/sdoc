@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'erb'
 require 'pathname'
 require 'fileutils'
