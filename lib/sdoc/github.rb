@@ -1,3 +1,5 @@
+require 'sdoc'
+
 module SDoc::GitHub
   def github_url(path)
     unless @github_url_cache.has_key? path

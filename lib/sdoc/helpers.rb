@@ -1,3 +1,5 @@
+require 'sdoc'
+
 module SDoc::Helpers
   def each_letter_group(methods, &block)
     group = {:name => '', :methods => []}
